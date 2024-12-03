@@ -1,44 +1,25 @@
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from rest_framework.views import APIView
-from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView
+import rest_framework.generics
 from rest_framework.response import Response
-from rest_framework import status
-from rest_framework_simplejwt.tokens import RefreshToken
-from django.shortcuts import get_object_or_404
-from django.contrib.auth.hashers import make_password
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt import views as jwt_views
 from django.contrib.auth import get_user_model
 
-from users.serializer import UserSerializer
+import users.serializer
 
 
-class UserRegisterAPIView(APIView):
-    def post(self, request):
-        data = request.data
-        username = data.get('username')
-        password = data.get('password')
-        email = data.get('email')
-
-        # Проверка обязательных полей
-        if not username or not password or not email:
-            return Response({"message": "Все поля обязательны для заполнения."}, status=status.HTTP_400_BAD_REQUEST)
-
-        # Проверка уникальности username
-        if User.objects.filter(username=username).exists():
-            return Response({"message": "Пользователь с таким ником уже существует."}, status=status.HTTP_400_BAD_REQUEST)
-        
-        # Создание пользователя
-        user = User.objects.create_user(username=username, email=email, password=password)
-               
-        return Response({"message": "Пользователь успешно создан"}, status=status.HTTP_201_CREATED)
+class UserRegisterAPIView(rest_framework.generics.CreateAPIView):
+    serializer_class = users.serializer.RegisterSerializer
+    queryset = get_user_model().objects.all()
 
 
 class UserLoginAPIView(jwt_views.TokenObtainPairView):
-    
+    # serializer_class = users.serializer.LoginSerializer
+    # queryset = get_user_model().objects.all()
+
     def post(self, request, *args, **kwargs):
-        # посмотреть как все работает внутри, мозможно это Token.for_user() -> тогда для верификации verify()
         response = super().post(request, *args, **kwargs)
         print(response.__dict__)
 
@@ -47,32 +28,33 @@ class UserLoginAPIView(jwt_views.TokenObtainPairView):
 
 class UserProfileAPIView(APIView):
     permission_classes = [IsAuthenticated]
+    serializer_class = users.serializer.UserSerializer
 
-    def get(self, request):
-        user = request.user
+    # def get(self, request):
+    #     user = request.user
 
-        return Response({
-            "username": user.username,
-            "email": user.email
-        }, status=status.HTTP_200_OK)
+    #     return Response({
+    #         "username": user.username,
+    #         "email": user.email
+    #     }, status=status.HTTP_200_OK)
     
 
-class UserListAPIView(ListAPIView):
-    permission_classes = [IsAuthenticated]
+class UserListAPIView(rest_framework.generics.ListAPIView):
+    # permission_classes = [IsAuthenticated]
     queryset = get_user_model().objects.all()
-    serializer_class = UserSerializer
+    serializer_class = users.serializer.UserSerializer
 
 
-class UserDetailUpdateDeleteAPIView(RetrieveUpdateDestroyAPIView):
+class UserDetailUpdateDeleteAPIView(rest_framework.generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated]
     queryset = get_user_model().objects.all()
-    serializer_class = UserSerializer
+    serializer_class = users.serializer.RegisterSerializer
     
 
 
-class UserSearchAPIView(RetrieveAPIView):
+class UserSearchAPIView(rest_framework.generics.RetrieveAPIView):
     queryset = get_user_model().objects.all()
-    serializer_class = UserSerializer
+    serializer_class = users.serializer.UserSerializer
     lookup_field = "username"
     
     def retrieve(self, request, *args, **kwargs):
