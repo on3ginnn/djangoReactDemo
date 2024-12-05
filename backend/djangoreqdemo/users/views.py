@@ -2,8 +2,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from rest_framework.views import APIView
 import rest_framework.generics
+from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+import rest_framework.permissions
 from rest_framework_simplejwt import views as jwt_views
 from django.contrib.auth import get_user_model
 
@@ -16,40 +17,43 @@ class UserRegisterAPIView(rest_framework.generics.CreateAPIView):
 
 
 class UserLoginAPIView(jwt_views.TokenObtainPairView):
-    # serializer_class = users.serializer.LoginSerializer
-    # queryset = get_user_model().objects.all()
-
     def post(self, request, *args, **kwargs):
         response = super().post(request, *args, **kwargs)
-        print(response.__dict__)
 
         return Response({"tokens": response.data}, status=response.status_code)
 
 
 class UserProfileAPIView(APIView):
-    permission_classes = [IsAuthenticated]
-    serializer_class = users.serializer.UserSerializer
+    permission_classes = [rest_framework.permissions.IsAuthenticated]
 
-    # def get(self, request):
-    #     user = request.user
+    def get(self, request):
+        user = request.user
 
-    #     return Response({
-    #         "username": user.username,
-    #         "email": user.email
-    #     }, status=status.HTTP_200_OK)
-    
+        print(user.groups)
+        print(user.get_user_permissions)
+
+        return Response({
+            "id": user.id,
+            "username": user.username,
+            "email": user.email,
+            "perm": {
+                "view": user.has_perm("product.view_item"),
+                "add": user.has_perm("product.add_item"),
+                "change": user.has_perm("product.change_item"),
+                "delete": user.has_perm("product.delete_item"),
+            }
+        }, status=status.HTTP_200_OK)
+
 
 class UserListAPIView(rest_framework.generics.ListAPIView):
-    # permission_classes = [IsAuthenticated]
     queryset = get_user_model().objects.all()
     serializer_class = users.serializer.UserSerializer
 
 
 class UserDetailUpdateDeleteAPIView(rest_framework.generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [rest_framework.permissions.IsAuthenticatedOrReadOnly]
     queryset = get_user_model().objects.all()
     serializer_class = users.serializer.RegisterSerializer
-    
 
 
 class UserSearchAPIView(rest_framework.generics.RetrieveAPIView):
