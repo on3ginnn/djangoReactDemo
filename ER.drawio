@@ -859,7 +859,7 @@
           <mxGeometry x="1849" y="501.5" width="192" height="48.5" as="geometry" />
         </mxCell>
         <mxCell id="ifopARkO56l4ZJfiSQP6-7" value="АИС" style="text;strokeColor=none;fillColor=none;html=1;fontSize=32;fontStyle=1;verticalAlign=middle;align=center;fontFamily=Courier New;labelBackgroundColor=none;labelBorderColor=none;fontColor=#7EA6E0;" vertex="1" parent="1">
-          <mxGeometry x="1948" y="130" width="240" height="40" as="geometry" />
+          <mxGeometry x="1948" y="150" width="240" height="40" as="geometry" />
         </mxCell>
         <mxCell id="ifopARkO56l4ZJfiSQP6-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="ifopARkO56l4ZJfiSQP6-8" target="ifopARkO56l4ZJfiSQP6-21">
           <mxGeometry relative="1" as="geometry" />
