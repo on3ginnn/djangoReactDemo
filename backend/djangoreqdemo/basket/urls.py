@@ -1,6 +1,10 @@
 from django.urls import path
-from .views import AddToBasketView
+
+import basket.views
+
 
 urlpatterns = [
-    path('basket/add/<int:pk>/', AddToBasketView.as_view(), name='add-to-basket'),
+    # TODO: add CRUD urls
+    path('add/<int:item_id>/', basket.views.AddToBasketAPIView.as_view(), name='add-to-basket'),
+    path('<int:pk>/', basket.views.RetrieveBasketAPIView.as_view(), name='get'),
 ]
