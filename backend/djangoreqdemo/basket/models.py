@@ -1,26 +1,15 @@
-from django.contrib.auth import get_user_model
+import django.contrib.auth
 from django.db import models
 
-User = get_user_model()
-print(User)
-
-class Product(models.Model):
-    """
-    Пример модели товара.
-    """
-    name = models.CharField(max_length=255)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-
-    def __str__(self):
-        return self.name
+import product.models
 
 
 class Basket(models.Model):
-    """
-    Модель корзины.
-    """
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='basket')
-    products = models.ManyToManyField(Product, related_name='baskets', blank=True)
+    user = models.OneToOneField(django.contrib.auth.get_user_model(), on_delete=models.CASCADE, related_name='basket')
+    products = models.ManyToManyField(product.models.Item, related_name='baskets', blank=True)
 
     def __str__(self):
         return f"Корзина пользователя {self.user.username}"
+    
+    def add_product(self, product):
+        self.products.add(product)

@@ -45,6 +45,10 @@ class Item(
         help_text='описание товара"',
     )
 
+    price = models.PositiveIntegerField(
+        "цена",
+    )
+
     created = django.db.models.DateTimeField(
         "дата создания",
         auto_now_add=True,
