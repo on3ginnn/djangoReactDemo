@@ -24,7 +24,7 @@ INSTALLED_APPS = [
     "users.apps.UsersConfig",
     "category.apps.CategoryConfig",
     "product.apps.ProductConfig",
-
+    "basket.apps.BasketConfig"
 ]
 
 REST_FRAMEWORK = {
