@@ -811,28 +811,28 @@
           <mxGeometry x="1840" y="120" width="440" height="440" as="geometry" />
         </mxCell>
         <mxCell id="734eyTE8SXIwoAON3j_R-200" value="Регистрация" style="ellipse;whiteSpace=wrap;html=1;fillColor=#cce5ff;strokeColor=#36393d;" parent="1" vertex="1">
-          <mxGeometry x="1850" y="130" width="90" height="35" as="geometry" />
+          <mxGeometry x="1851" y="220" width="90" height="35" as="geometry" />
         </mxCell>
         <mxCell id="734eyTE8SXIwoAON3j_R-201" value="Вход" style="ellipse;whiteSpace=wrap;html=1;fillColor=#cdeb8b;strokeColor=#36393d;" parent="1" vertex="1">
-          <mxGeometry x="1950" y="130" width="60" height="35" as="geometry" />
+          <mxGeometry x="1951" y="220" width="60" height="35" as="geometry" />
         </mxCell>
         <mxCell id="734eyTE8SXIwoAON3j_R-202" value="Смотреть профиль" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffff88;strokeColor=#36393d;" parent="1" vertex="1">
-          <mxGeometry x="1850" y="171.5" width="80" height="48.5" as="geometry" />
+          <mxGeometry x="1851" y="261.5" width="80" height="48.5" as="geometry" />
         </mxCell>
         <mxCell id="734eyTE8SXIwoAON3j_R-203" value="&lt;div&gt;Удалять&amp;nbsp;&lt;/div&gt;&lt;div&gt;профиль&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffff88;strokeColor=#36393d;" parent="1" vertex="1">
-          <mxGeometry x="1940" y="171.5" width="100" height="48.5" as="geometry" />
+          <mxGeometry x="1941" y="261.5" width="100" height="48.5" as="geometry" />
         </mxCell>
         <mxCell id="734eyTE8SXIwoAON3j_R-205" value="Изменять профиль" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffff88;strokeColor=#36393d;" parent="1" vertex="1">
-          <mxGeometry x="1848" y="230" width="80" height="48.5" as="geometry" />
+          <mxGeometry x="1849" y="320" width="80" height="48.5" as="geometry" />
         </mxCell>
         <mxCell id="734eyTE8SXIwoAON3j_R-206" value="Выход" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#36393d;" parent="1" vertex="1">
-          <mxGeometry x="1955" y="288.5" width="70" height="50" as="geometry" />
+          <mxGeometry x="1956" y="378.5" width="70" height="50" as="geometry" />
         </mxCell>
         <mxCell id="734eyTE8SXIwoAON3j_R-207" value="Смотреть товары" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcc99;strokeColor=#36393d;" parent="1" vertex="1">
-          <mxGeometry x="1940" y="229" width="110" height="41" as="geometry" />
+          <mxGeometry x="1941" y="319" width="110" height="41" as="geometry" />
         </mxCell>
         <mxCell id="734eyTE8SXIwoAON3j_R-217" value="Добавлять товары" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcc99;strokeColor=#36393d;" parent="1" vertex="1">
-          <mxGeometry x="2160" y="130" width="110" height="50" as="geometry" />
+          <mxGeometry x="2161" y="220" width="110" height="50" as="geometry" />
         </mxCell>
         <mxCell id="734eyTE8SXIwoAON3j_R-218" value="" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=18;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="734eyTE8SXIwoAON3j_R-184" target="734eyTE8SXIwoAON3j_R-199" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -841,25 +841,25 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="734eyTE8SXIwoAON3j_R-219" value="Удалять товары" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcc99;strokeColor=#36393d;" parent="1" vertex="1">
-          <mxGeometry x="2150" y="260" width="110" height="50" as="geometry" />
+          <mxGeometry x="2151" y="350" width="110" height="50" as="geometry" />
         </mxCell>
         <mxCell id="734eyTE8SXIwoAON3j_R-220" value="Создавать изменять, удалять категории" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcc99;strokeColor=#36393d;" parent="1" vertex="1">
-          <mxGeometry x="2070" y="320" width="200" height="70" as="geometry" />
+          <mxGeometry x="2071" y="410" width="200" height="70" as="geometry" />
         </mxCell>
         <mxCell id="ifopARkO56l4ZJfiSQP6-1" value="Изменять товары" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcc99;strokeColor=#36393d;" vertex="1" parent="1">
-          <mxGeometry x="2160" y="190" width="110" height="50" as="geometry" />
+          <mxGeometry x="2161" y="280" width="110" height="50" as="geometry" />
         </mxCell>
         <mxCell id="ifopARkO56l4ZJfiSQP6-4" value="Осуществить поиск" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffff88;strokeColor=#36393d;" vertex="1" parent="1">
-          <mxGeometry x="1850" y="290" width="100" height="48.5" as="geometry" />
+          <mxGeometry x="1851" y="380" width="100" height="48.5" as="geometry" />
         </mxCell>
         <mxCell id="ifopARkO56l4ZJfiSQP6-5" value="Оплата товаров" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffff88;strokeColor=#36393d;" vertex="1" parent="1">
-          <mxGeometry x="1848" y="350" width="80" height="48.5" as="geometry" />
+          <mxGeometry x="1849" y="440" width="80" height="48.5" as="geometry" />
         </mxCell>
         <mxCell id="ifopARkO56l4ZJfiSQP6-6" value="Выбор способа доставки" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffff88;strokeColor=#36393d;" vertex="1" parent="1">
-          <mxGeometry x="1848" y="411.5" width="192" height="48.5" as="geometry" />
+          <mxGeometry x="1849" y="501.5" width="192" height="48.5" as="geometry" />
         </mxCell>
         <mxCell id="ifopARkO56l4ZJfiSQP6-7" value="АИС" style="text;strokeColor=none;fillColor=none;html=1;fontSize=32;fontStyle=1;verticalAlign=middle;align=center;fontFamily=Courier New;labelBackgroundColor=none;labelBorderColor=none;fontColor=#7EA6E0;" vertex="1" parent="1">
-          <mxGeometry x="1970" y="131.5" width="240" height="40" as="geometry" />
+          <mxGeometry x="1948" y="130" width="240" height="40" as="geometry" />
         </mxCell>
         <mxCell id="ifopARkO56l4ZJfiSQP6-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="ifopARkO56l4ZJfiSQP6-8" target="ifopARkO56l4ZJfiSQP6-21">
           <mxGeometry relative="1" as="geometry" />
