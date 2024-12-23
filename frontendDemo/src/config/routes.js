@@ -31,6 +31,11 @@ export const publicRoutes = [
         name:'Авторизация',
         path:'/login',
         component:Auth
+    },
+    {
+        name:'Пользователи',
+        path:'/users',
+        component:UserList
     }
 
 ];

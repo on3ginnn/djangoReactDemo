@@ -1,9 +1,11 @@
 import {makeAutoObservable} from 'mobx';
-import UserService from '../services/UserService';
+import UserAPI from '../api/UserAPI';
 
 class UserStore{
     isAuth = localStorage.getItem('isAuth') || false;
     accessToken = localStorage.getItem('accessToken') || '';
+    userList = [];
+
     constructor(){
         makeAutoObservable(this);
     }
@@ -14,9 +16,9 @@ class UserStore{
         } catch (error) {
         }
     }
-    async userList(){
+    async getUserList(){
         try {
-            const response = await UserService.list();
+            const response = await UserAPI.getUsers();
             console.log(response);
             console.log(response.data);
             console.log(response.status);

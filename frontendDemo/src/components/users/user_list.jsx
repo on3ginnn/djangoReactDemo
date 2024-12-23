@@ -5,31 +5,29 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const UserList = observer(()=>{
-    const navigate = useNavigate();
-
-    const [users,setUsers] = useState();
+    // const navigate = useNavigate();
 
     useEffect(() => {
-        async function fetchUser(){
-            await userStore.userList().then(res=>{
-                console.log(res);
-                // для выхода в случае если пользователь не аутентифицирован
-                if (res === undefined) {
-                    userStore.logout();
-                    navigate("/login");
-                }
-                console.log(res.status);
-                setUsers(res);
-            });
+        async function fetchUserList(){
+            // await userStore.userList().then(res=>{
+            //     console.log(res);
+            //     // для выхода в случае если пользователь не аутентифицирован
+            //     if (res === undefined) {
+            //         userStore.logout();
+            //         navigate("/login");
+            //     }
+            //     console.log(res.status);
+            //     setUsers(res);
+            // });
+            await userStore.getUserList();
         }
-        fetchUser();
-        console.log(users);
-
+        fetchUserList();
     }, [])
+
     return(
         <Container>
             {
-                console.log(users)
+                
             }
 
 
