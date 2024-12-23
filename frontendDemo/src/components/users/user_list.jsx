@@ -26,10 +26,8 @@ const UserList = observer(()=>{
 
     return(
         <Container>
-            {
-                
-            }
-
+                {console.log(userStore.userList)}
+                {userStore.userList.map((el, i) => <h1>{el}</h1>)}
 
         </Container>
     )
