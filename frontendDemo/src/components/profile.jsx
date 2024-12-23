@@ -12,14 +12,14 @@ const Profile = observer(()=>{
     useEffect(() => {
         console.log("f");
         async function fetchUser(){
-            await userStore.profileUser().then(res=>{
+            await userStore.getProfileUser().then(res=>{
                 console.log(res);
                 // для выхода в случае если пользователь не аутентифицирован
                 if (res === undefined) {
                     userStore.logout();
                     navigate("/login");
                 }
-                console.log(res.status);
+                // console.log(res.status);
                 setUser(res);
             });
         }

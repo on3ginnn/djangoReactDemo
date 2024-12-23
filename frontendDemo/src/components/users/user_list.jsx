@@ -27,8 +27,10 @@ const UserList = observer(()=>{
     return(
         <Container>
                 {console.log(userStore.userList)}
-                {userStore.userList.map((el, i) => <h1>{el}</h1>)}
-
+                {userStore.userList.map((el, i) => (
+                    <h1 key={i}>{el.username}</h1> // Используйте ключ `username` или другой идентификатор
+                ))
+                }
         </Container>
     )
 })

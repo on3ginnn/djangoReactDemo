@@ -11,7 +11,7 @@ class UserStore{
     }
     async addUser(data){
         try {
-            const response = await UserService.create(data);
+            const response = await UserAPI.register(data);
             console.log(response);
         } catch (error) {
         }
@@ -19,16 +19,15 @@ class UserStore{
     async getUserList(){
         try {
             const response = await UserAPI.getUsers();
-            console.log(response);
-            console.log(response.data);
-            console.log(response.status);
+
+            this.userList = response.data;
             return response;
         } catch (error) {
         }
     }
-    async profileUser(){
+    async getProfileUser(){
         try {
-            const response = await UserService.profile();
+            const response = await UserAPI.getProfile();
             console.log(response);
             console.log(response.data);
             console.log(response.status);
@@ -38,7 +37,8 @@ class UserStore{
     }
     async loginUser(data){
         try {
-            const response = await UserService.login(data);
+            const response = await UserAPI.login(data);
+            console.log(response)
             const { access, refresh } = response.data.tokens;
 
             localStorage.setItem('accessToken', access);
