@@ -16,13 +16,35 @@ const Header = observer(() => {
                 <motion.h1 initial={{opacity:0}} animate={{opacity:1}} transition={{duration:.8}}>Это лого</motion.h1>
                 </Navbar.Brand>
             <Nav className="ms-auto">
-                {
-                    userStore.accessToken.length!=0 &&
+                { console.log(console.log(authRoutes)) }
+                { console.log(userStore.accessToken.length) }
 
-                        authRoutes.map((el, i) => <Nav.Link key={i} as={Link} to={el.path}>{el.name}</Nav.Link>) && <Button variant="danger" onClick={logout}>Выйти</Button>
+                {
+                    userStore.accessToken.length !== 0 && (
+                        <>
+                            {authRoutes.map((el, i) => (
+                                <Nav.Link key={i} as={Link} to={el.path}>
+                                    {el.name}
+                                </Nav.Link>
+                            ))}
+                            <Button variant="danger" onClick={logout}>Выйти</Button>
+                        </>
+                    )
                 }
-                        
-                {userStore.accessToken.length==0 && publicRoutes.map((el, i) => <Nav.Link key={i} as={Link} to={el.path}>{el.name}</Nav.Link>)}
+
+                {
+                    userStore.accessToken.length === 0 && (
+                        <>
+                            {publicRoutes.map((el, i) => (
+                                <Nav.Link key={i} as={Link} to={el.path}>
+                                    {el.name}
+                                </Nav.Link>
+                            ))}
+                        </>
+                    )
+                }
+
+
             </Nav>
         </Navbar>
     )
