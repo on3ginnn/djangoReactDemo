@@ -16,6 +16,13 @@ class UserStore{
         } catch (error) {
         }
     }
+    async setUser(data){
+        try {
+            const response = await UserAPI.setUser(data);
+            console.log(response);
+        } catch (error) {
+        }
+    }
     async getUserList(){
         try {
             const response = await UserAPI.getUsers();

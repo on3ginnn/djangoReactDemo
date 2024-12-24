@@ -3,6 +3,7 @@ import {userStore} from '../stores/UserStore';
 import {observer} from 'mobx-react';
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button, Nav, Navbar } from "react-bootstrap"
 
 const Profile = observer(()=>{
     const navigate = useNavigate();
@@ -27,6 +28,12 @@ const Profile = observer(()=>{
         console.log(user);
 
     }, [])
+
+    const editProfile = () => {
+        // userStore.setUser();
+        navigate('/profile/edit');
+    }
+
     return(
         <Container>
             {
@@ -40,6 +47,7 @@ const Profile = observer(()=>{
                     <p>{user.email}</p>
                 </div>)
             }
+            <Button variant="primary" onClick={editProfile}>Изменить</Button>
         </Container>
     )
 })
