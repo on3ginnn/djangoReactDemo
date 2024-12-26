@@ -26,7 +26,6 @@ const EditUser = observer(() => {
             navigate('/profile');
         });
     }
-
     return(
         <Container>
             <h1>Изменение профиля</h1>

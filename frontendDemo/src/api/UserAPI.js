@@ -12,9 +12,7 @@ export default class UserAPI {
     }
     static async setUser(data){
         try {
-            console.log('fff');
             const token = localStorage.getItem('accessToken');
-            console.log(token);
             if (!token) {
                 throw new Error('Токен не найден');
             }
@@ -34,6 +32,7 @@ export default class UserAPI {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
                 }
+            }
             );
             return response;
         } catch (error) {
@@ -46,6 +45,34 @@ export default class UserAPI {
             return response;
         } catch (error) {
             console.log(error.response.data.message);
+        }
+    }
+    static async deleteUser(){
+        try{
+            const token = localStorage.getItem('accessToken');
+            if (!token) {
+                throw new Error('Токен не найден');
+            }
+
+            // Декодируем токен для получения userId
+            const decoded = jwtDecode(token);
+            const userId = decoded.user_id || decoded.id; // Убедитесь, какое поле содержит ID
+
+            if (!userId) {
+                throw new Error('ID пользователя не найден в токене');
+            }
+
+            console.log('UserID из токена:', userId);
+
+            const response = await apiClient.delete(`/auth/user/${userId}/`, {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            }
+            );
+            return response;
+        } catch (error) {
+            return error;
         }
     }
     static async getUsers(){
@@ -63,8 +90,6 @@ export default class UserAPI {
                     'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
                 }
             });
-            console.log(response.data);
-            console.log(response.status)
 
             return response.data;
         } catch (error) {

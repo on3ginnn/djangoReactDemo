@@ -12,15 +12,21 @@ class UserStore{
     async addUser(data){
         try {
             const response = await UserAPI.register(data);
-            console.log(response);
         } catch (error) {
         }
     }
     async setUser(data){
         try {
             const response = await UserAPI.setUser(data);
-            console.log(response);
         } catch (error) {
+        }
+    }
+    async deleteUser(){
+        try {
+            const response = await UserAPI.deleteUser();
+        } catch (error) {
+            console.log(error.response.data.message);
+
         }
     }
     async getUserList(){
@@ -35,9 +41,7 @@ class UserStore{
     async getProfileUser(){
         try {
             const response = await UserAPI.getProfile();
-            console.log(response);
-            console.log(response.data);
-            console.log(response.status);
+
             return response;
         } catch (error) {
         }
@@ -45,14 +49,12 @@ class UserStore{
     async loginUser(data){
         try {
             const response = await UserAPI.login(data);
-            console.log(response)
             const { access, refresh } = response.data.tokens;
 
             localStorage.setItem('accessToken', access);
             localStorage.setItem('refreshToken', refresh);
             localStorage.setItem('isAuth', true);
             this.accessToken = localStorage.getItem('accessToken');
-            console.log(this.accessToken);
             // const [cookies, setCookie, removeCookie] = useCookies(['cookie-name']);
             
         } catch (error) {

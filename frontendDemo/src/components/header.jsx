@@ -16,8 +16,6 @@ const Header = observer(() => {
                 <motion.h1 initial={{opacity:0}} animate={{opacity:1}} transition={{duration:.8}}>Это лого</motion.h1>
                 </Navbar.Brand>
             <Nav className="ms-auto">
-                { console.log(console.log(authRoutes)) }
-                { console.log(userStore.accessToken.length) }
 
                 {
                     userStore.accessToken.length !== 0 && (
@@ -43,7 +41,6 @@ const Header = observer(() => {
                         </>
                     )
                 }
-
 
             </Nav>
         </Navbar>
