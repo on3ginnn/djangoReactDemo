@@ -3,7 +3,6 @@ import Register from "../components/register";
 import Auth from "../components/auth";
 import Profile from "../components/profile";
 import UserList from "../components/users/user_list";
-import AddCategory from "../components/categories/add_category";
 import Categories from "../components/categories/categories";
 
 export const publicRoutes = [
@@ -11,11 +10,6 @@ export const publicRoutes = [
         name:'Главная',
         path:'/',
         component:Home
-    },
-    {
-        name:'Добавление категории',
-        path:'/addcategory',
-        component:AddCategory
     },
     {
         name:'Категории',
@@ -31,11 +25,6 @@ export const publicRoutes = [
         name:'Авторизация',
         path:'/login',
         component:Auth
-    },
-    {
-        name:'Пользователи',
-        path:'/users',
-        component:UserList
     }
 
 ];
@@ -49,5 +38,15 @@ export const authRoutes = [
         name:'Пользователи',
         path:'/users',
         component:UserList
+    },
+    {
+        name:'Главная',
+        path:'/',
+        component:Home
+    },
+    {
+        name:'Категории',
+        path:'/category',
+        component:Categories
     }
 ];

@@ -3,6 +3,7 @@ import { useState } from "react";
 import {userStore} from '../stores/UserStore';
 import {observer} from 'mobx-react';
 import { useNavigate } from "react-router-dom";
+
 const Register = observer(()=>{
     const navigate = useNavigate();
     const [data,setData] = useState({

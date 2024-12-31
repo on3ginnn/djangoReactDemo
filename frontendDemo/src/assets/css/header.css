@@ -1,0 +1,7 @@
+.logo__img{
+    width: 50px;
+}
+.logo__img img{
+    width: 100%;
+    object-fit: cover;
+}
