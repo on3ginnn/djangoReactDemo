@@ -1,6 +1,6 @@
 import { Alert, Container } from "react-bootstrap"
-import {userStore} from '../stores/UserStore';
-import {observer} from 'mobx-react';
+import { userStore } from '../stores/UserStore';
+import { observer } from 'mobx-react';
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Nav, Navbar } from "react-bootstrap"
@@ -38,7 +38,7 @@ const Profile = observer(()=>{
 
 
     return(
-        <Container>
+        <Container fluid="md">
             {/* ожидание подгрузки */}
             {
                 !user ? (<p>Loading...</p>) : (<div>

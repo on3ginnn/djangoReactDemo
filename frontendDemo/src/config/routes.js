@@ -4,6 +4,7 @@ import Auth from "../components/auth";
 import Profile from "../components/profile";
 import UserList from "../components/users/user_list";
 import Categories from "../components/categories/categories";
+import addCategory from "../components/categories/add_category";
 
 
 export const publicRoutes = [
@@ -47,7 +48,12 @@ export const authRoutes = [
     },
     {
         name:'Категории',
-        path:'/category',
+        path:'/categories',
         component:Categories
+    },
+    {
+        name:'Добавить категорию',
+        path:'/category/add',
+        component:addCategory
     }
 ];

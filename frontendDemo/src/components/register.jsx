@@ -26,7 +26,7 @@ const Register = observer(()=>{
         });
     }
     return(
-        <Container>
+        <Container fluid="md">
             <h1>Регистрация</h1>
             <Form onSubmit={submitForm}>
             <Form.Group>

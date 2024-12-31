@@ -25,7 +25,7 @@ const Auth = observer(()=>{
 
     }
     return(
-        <Container>
+        <Container fluid="md">
             <h1>Авторизация</h1>
             <Form onSubmit={submitForm}>
                 <Form.Group>

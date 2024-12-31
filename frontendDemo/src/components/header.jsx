@@ -17,7 +17,7 @@ const Header = observer(() => {
         <Navbar key={expand} expand={expand} fixed="top" bg="light" data-bs-theme="light" className="p-2 mb-2">
             <Container fluid="md">
                 <Navbar.Brand>
-                    <img className="logo__img" src="./src/assets/img/logo.png" alt="" />
+                    <img className="logo__img" src="/src/assets/img/logo.png" alt="" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
                 <Navbar.Offcanvas

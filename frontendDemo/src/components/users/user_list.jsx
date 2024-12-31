@@ -25,7 +25,7 @@ const UserList = observer(()=>{
     }, [])
 
     return(
-        <Container>
+        <Container fluid="md">
                 {console.log(userStore.userList)}
                 {userStore.userList.map((el, i) => (
                     <h1 key={i}>{el.username}</h1> // Используйте ключ `username` или другой идентификатор
