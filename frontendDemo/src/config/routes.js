@@ -5,6 +5,7 @@ import Profile from "../components/profile";
 import UserList from "../components/users/user_list";
 import Categories from "../components/categories/categories";
 
+
 export const publicRoutes = [
     {
         name:'Главная',

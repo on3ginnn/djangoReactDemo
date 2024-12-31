@@ -1,4 +1,5 @@
 import { apiClient } from "../config/apiClient";
+import { jwtDecode } from "jwt-decode";
 
 export default class UserAPI {
     static async register(data){
@@ -9,12 +10,69 @@ export default class UserAPI {
             console.log(error.response.data.message);
         }
     }
+    static async setUser(data){
+        try {
+            const token = localStorage.getItem('accessToken');
+            if (!token) {
+                throw new Error('Токен не найден');
+            }
+
+            // Декодируем токен для получения userId
+            const decoded = jwtDecode(token);
+            const userId = decoded.user_id || decoded.id; // Убедитесь, какое поле содержит ID
+
+            if (!userId) {
+                throw new Error('ID пользователя не найден в токене');
+            }
+
+            console.log('UserID из токена:', userId);
+            console.log('Отправляемые данные:', data);
+
+            const response = await apiClient.patch(`/auth/user/${userId}/`, data, {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            }
+            );
+            return response;
+        } catch (error) {
+            console.log(error.response?.data?.message || error.message);
+        }
+    }
     static async login(data){
         try {
             const response = await apiClient.post('/auth/login/', data);
             return response;
         } catch (error) {
             console.log(error.response.data.message);
+        }
+    }
+    static async deleteUser(){
+        try{
+            const token = localStorage.getItem('accessToken');
+            if (!token) {
+                throw new Error('Токен не найден');
+            }
+
+            // Декодируем токен для получения userId
+            const decoded = jwtDecode(token);
+            const userId = decoded.user_id || decoded.id; // Убедитесь, какое поле содержит ID
+
+            if (!userId) {
+                throw new Error('ID пользователя не найден в токене');
+            }
+
+            console.log('UserID из токена:', userId);
+
+            const response = await apiClient.delete(`/auth/user/${userId}/`, {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            }
+            );
+            return response;
+        } catch (error) {
+            return error;
         }
     }
     static async getUsers(){
@@ -32,8 +90,6 @@ export default class UserAPI {
                     'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
                 }
             });
-            console.log(response.data);
-            console.log(response.status)
 
             return response.data;
         } catch (error) {
