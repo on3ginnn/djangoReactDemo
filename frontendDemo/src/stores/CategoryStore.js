@@ -1,38 +1,35 @@
-import {makeAutoObservable} from 'mobx';
+import { makeAutoObservable } from 'mobx';
 import CategoryAPI from '../api/CategoryAPI';
 
-class CategoryStore{
-    constructor(){
+class CategoryStore {
+    constructor() {
         makeAutoObservable(this);
     }
-    async createCategory(data){
+    async createCategory(data) {
         try {
             await CategoryAPI.create(data);
         } catch (error) {
-            console.log(error.response.data.message);
         }
     }
-    async setCategory(data){
+    async setCategory(id, data) {
         try {
-            await CategoryAPI.set(data);
+            await CategoryAPI.set(id, data);
         } catch (error) {
-            console.log(error.response.data.message);
         }
     }
-    async deleteCategory(){
+    async deleteCategory(id) {
         try {
-            await CategoryAPI.delete();
+            await CategoryAPI.delete(id);
         } catch (error) {
-            console.log(error.response.data.message);
         }
     }
-    async getCategoryList(){
+    async getCategoryList() {
         try {
             const response = await CategoryAPI.all();
-            this.userList = response.data;
+            return response.data;
         } catch (error) {
-            console.log(error.response.data.message);
         }
     }
 }
+
 export let categoryStore = new CategoryStore();

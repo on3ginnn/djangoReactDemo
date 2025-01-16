@@ -1,11 +1,12 @@
-import { Container, Row, Col, Form, Button } from "react-bootstrap"
+import { Container, Form, Button } from "react-bootstrap"
 import { useState } from "react";
-import axios from "axios";
 import { categoryStore } from '../../stores/CategoryStore';
 import { observer } from 'mobx-react';
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-const AddCategory = observer(() => {
+const EditCategory = observer(() => {
+    const { id } = useParams();
     const navigate = useNavigate();
     const [data,setData] = useState({
         title:''
@@ -19,23 +20,23 @@ const AddCategory = observer(() => {
     }
     const submitForm = async (ev)=>{
         ev.preventDefault();
-        await categoryStore.createCategory(data).then(()=>{
+        await categoryStore.setCategory(id, data).then(()=>{
             navigate('/categories');
         });
     }
 
     return(
         <Container fluid="md">
-            <h1>Добавление категории</h1>
+            <h1>Изменение категории</h1>
             <Form onSubmit={submitForm}>
                 <Form.Group>
                     <Form.Label>Название</Form.Label>
                     <Form.Control type="text" name="title" value={data.title} onChange={handleChange}/>
                 </Form.Group>
    
-                <Button variant="success" type="submit">Добавить</Button>
+                <Button variant="success" type="submit">Сохранить</Button>
             </Form>
         </Container>
     )
 })
-export default AddCategory;
+export default EditCategory;

@@ -4,9 +4,10 @@ import { authRoutes, publicRoutes } from "../config/routes";
 import { observer } from "mobx-react";
 import { userStore } from "../stores/UserStore";
 import "../assets/css/header.css";
-import {motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const Header = observer(() => {
+    const brandName = "KIBET";
     const expand = "md";
     const navigate = useNavigate();
     const logout = ()=>{
@@ -17,7 +18,10 @@ const Header = observer(() => {
         <Navbar key={expand} expand={expand} fixed="top" bg="light" data-bs-theme="light" className="p-2 mb-2">
             <Container fluid="md">
                 <Navbar.Brand>
-                    <img className="logo__img" src="/src/assets/img/logo.png" alt="" />
+                    <a href="/" className="d-flex align-items-center gap-3 link-underline link-underline-opacity-0">
+                        <img className="logo__img" src="/src/assets/img/logo.png" alt="" />
+                        <div className="text-uppercase fw-medium text-body-emphasis fs-1">{ brandName }</div>
+                    </a>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
                 <Navbar.Offcanvas
@@ -27,13 +31,11 @@ const Header = observer(() => {
                 >
                 <Offcanvas.Header closeButton>
                     <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                    OnlineShop
+                        { brandName }
                     </Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                     <Nav className="justify-content-end flex-grow-1 pe-3">
-                        { console.log(authRoutes) }
-                        { console.log(userStore.accessToken.length) }
                         {
                             userStore.accessToken.length != 0 &&
                             authRoutes.map((el, i) => <Nav.Link key={i} as={Link} to={el.path}>{el.name}</Nav.Link>)

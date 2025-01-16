@@ -41,7 +41,6 @@ class UserStore{
     async getProfileUser(){
         try {
             const response = await UserAPI.getProfile();
-
             return response;
         } catch (error) {
         }

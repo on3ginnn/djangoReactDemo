@@ -12,6 +12,7 @@ class Category(
         max_length=200,
         verbose_name="слаг",
         unique=True,
+        blank=True,
     )
 
     def __str__(self):

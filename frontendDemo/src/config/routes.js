@@ -4,7 +4,10 @@ import Auth from "../components/auth";
 import Profile from "../components/profile";
 import UserList from "../components/users/user_list";
 import Categories from "../components/categories/categories";
+import Products from "../components/products/products";
 import addCategory from "../components/categories/add_category";
+import addProduct from "../components/products/add_product";
+import editCategory from "../components/categories/edit_category";
 
 
 export const publicRoutes = [
@@ -17,6 +20,11 @@ export const publicRoutes = [
         name:'Категории',
         path:'/categories',
         component:Categories
+    },
+    {
+        name:'Товары',
+        path:'/products',
+        component:Products
     },
     {
         name:'Регистрация',
@@ -52,8 +60,8 @@ export const authRoutes = [
         component:Categories
     },
     {
-        name:'Добавить категорию',
-        path:'/category/add',
-        component:addCategory
+        name:'Товары',
+        path:'/products',
+        component:Products
     }
 ];

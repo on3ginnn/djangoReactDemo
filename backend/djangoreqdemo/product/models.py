@@ -18,7 +18,7 @@ class ItemManager(django.db.models.Manager):
             .select_related(
                 "category",
             )
-            .only("title", "category__title", "description")
+            .only("title", f"{item_category}__{category_name}", "description")
             .order_by(
                 "-created",
                 f"{item_category}__{category_name}",

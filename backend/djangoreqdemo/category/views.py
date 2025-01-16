@@ -18,7 +18,7 @@ import category.serializer
 class CategoryCreateAPIView(rest_framework.generics.CreateAPIView):
     permission_classes = [IsAuthenticated]
     queryset = category.models.Category.objects.all()
-    serializer_class = category.serializer.CategoryCreateSerializer
+    serializer_class = category.serializer.CategorySerializer
 
 
 class CategoryListAPIView(rest_framework.generics.ListAPIView):

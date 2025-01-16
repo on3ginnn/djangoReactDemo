@@ -9,12 +9,12 @@ const getJWTToken = () => {
     return token;
 }
 
-export default class CategoryAPI {
+export default class ProductAPI {
     static async create(data){
         try {
             const token = getJWTToken();
-
-            const response = await apiClient.post('/category/create/', data, {
+            console.log('Отправляемые данные:', data);
+            const response = await apiClient.post('/product/create/', data, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -28,18 +28,14 @@ export default class CategoryAPI {
             }
         }
     }
-    static async set(categoryId, data){
+    static async set(productId, data){
         try {
             const token = getJWTToken();
 
             if (!token) {
                 throw new Error('Токен не найден');
             }
-
-            // console.log('categoryId:', categoryId);
-            // console.log('Отправляемые данные:', data);
-
-            const response = await apiClient.patch(`/category/${categoryId}/`, data, {
+            const response = await apiClient.patch(`/product/${productId}/`, data, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -62,15 +58,15 @@ export default class CategoryAPI {
             }
         }
     }
-    static async delete(categoryId){
+    static async delete(productId){
         try{
-            const token = getJWTToken();
+            const token = localStorage.getItem('accessToken');
 
             if (!token) {
                 throw new Error('Токен не найден');
             }
 
-            const response = await apiClient.delete(`/category/${categoryId}/`, {
+            const response = await apiClient.delete(`/product/${productId}/`, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -86,7 +82,7 @@ export default class CategoryAPI {
     }
     static async all(){
         try{
-            const response = await apiClient.get("/category/all/");
+            const response = await apiClient.get("/product/all/");
             return response;
         } catch (error) {
             console.error(error.response.data.message);
